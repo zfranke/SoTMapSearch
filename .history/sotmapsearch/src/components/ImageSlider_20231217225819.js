@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button } from '@mui/material';
+import { Container, Button, makeStyles } from '@mui/material';
 
 //Directory of all the image names
-import Logo from '../maps/1Logo.jpg';
+import Logo from '../maps/1logo.jpg';
 import Barnacle_Cay from '../maps/Barnacle_Cay.jpg';
 import Black_Sand_Atoll from '../maps/Black_Sand_Atoll.jpg';
 import Black_Water_Enclave from '../maps/Black_Water_Enclave.jpg';
@@ -59,64 +59,29 @@ import Tri_Rock_Isle from '../maps/Tri_Rock_Isle.jpg';
 import Twin_Groves from '../maps/Twin_Groves.jpg';
 import Wanderers_Refuge from '../maps/Wanderers_Refuge.jpg';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  imageContainer: {
+    maxWidth: '100%',
+  },
+  buttonContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginTop: theme.spacing(2),
+  },
+}));
+
 function ImageSlider() {
+  const classes = useStyles();
   const images = [
     Logo,
     Barnacle_Cay,
     Black_Sand_Atoll,
-    Black_Water_Enclave,
-    Blind_Mans_Lagoon,
-    Booty_Isle,
-    Boulder_Cay,
-    Cannon_Cove,
-    Castaway_Isle,
-    Chicken_Isle,
-    Crooks_Hollow,
-    Cutlass_Cay,
-    Devils_Ridge,
-    Discovery_Ridge,
-    Hidden_Spring_Keep,
-    Isle_of_Last_Words,
-    Keel_Haul_Fort,
-    Kraken_Watchtower,
-    Krakens_Fall,
-    Lagoon_of_Whispers,
-    Liar_s_Backbone,
-    Lone_Cove,
-    Lookout_Point,
-    Lost_Gold_Fort,
-    Marauders_Arch,
-    Mermaids_Hideaway,
-    Mutineer_Rock,
-    Old_Boot_Fort,
-    Old_Faithful_Isle,
-    Old_Salts_Atoll,
-    Paradise_Spring,
-    Plunder_Valley,
-    Plunderers_Plight,
-    Rapier_Cay,
-    Rum_Runner_Isle,
-    Sailors_Bounty,
-    Sailors_Knot_Stronghold,
-    Salty_Sands,
-    Sandy_Shallows,
-    Sea_Dogs_Rest,
-    Shark_Bait_Cove,
-    Shark_Fin_Camp,
-    Shark_Tooth_Key,
-    Shipwreck_Bay,
-    Shiver_Retreat,
-    Skull_Keep,
-    Snake_Island,
-    Scurvy_Isley,
-    Smugglers_Bay,
-    The_Crooked_Masts,
-    The_Crows_Nest_Fortress,
-    The_Sunen_Grove,
-    Thieves_Haven,
-    Tri_Rock_Isle,
-    Twin_Groves,
-    Wanderers_Refuge,
+    // Add more image imports to match your image names object
   ];
   const totalImages = images.length;
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -147,17 +112,16 @@ function ImageSlider() {
   const currentImage = images[currentIndex];
 
   return (
-    <Container style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div style={{ maxWidth: '100%' }}>
+    <Container className={classes.root}>
+      <div className={classes.imageContainer}>
         <img
           src={currentImage}
           alt={`Image ${currentIndex}`}
-          style={{ height: '860px', width: '860px' }}
+          className={classes.image}
         />
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '16px' }}>
+      <div className={classes.buttonContainer}>
         <Button onClick={() => navigate('prev')}>&#8592; Previous</Button>
-        <Button onClick={() => setCurrentIndex(0)}>Reset</Button>
         <Button onClick={() => navigate('next')}>Next &#8594;</Button>
       </div>
     </Container>

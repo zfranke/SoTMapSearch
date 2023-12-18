@@ -7,8 +7,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <br />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ textAlign: 'center' }}>
         <ImageUploader />
         <ImageSlider />
       </div>

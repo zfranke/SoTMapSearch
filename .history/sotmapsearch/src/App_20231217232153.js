@@ -7,7 +7,6 @@ function App() {
   return (
     <>
       <Navbar />
-      <br />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <ImageUploader />
         <ImageSlider />

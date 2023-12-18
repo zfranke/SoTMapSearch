@@ -30,7 +30,6 @@ function ImageUploader() {
 
   return (
     <Container maxWidth="md">
-        <br />
       <Typography variant="h5" align="center" gutterBottom>
         Image Uploader
       </Typography>
@@ -41,7 +40,16 @@ function ImageUploader() {
         style={{ display: 'none' }}
         id="image-upload-input"
       />
-      
+      <label htmlFor="image-upload-input">
+        <Button
+          variant="contained"
+          component="span"
+          startIcon={<CloudUploadIcon />}
+        >
+          Upload Image
+        </Button>
+      </label>
+      <br />
       <div
         onPaste={handlePaste}
         style={{
@@ -55,19 +63,6 @@ function ImageUploader() {
           You can also paste an image from your clipboard here.
         </Typography>
       </div>
-
-      <br />
-
-      <label htmlFor="image-upload-input">
-        <Button
-          variant="contained"
-          component="span"
-          startIcon={<CloudUploadIcon />}
-        >
-          Upload Image
-        </Button>
-      </label>
-
       {selectedImage && (
         <div>
           <Typography variant="h6" align="center" gutterBottom>

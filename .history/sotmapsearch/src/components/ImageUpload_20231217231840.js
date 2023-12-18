@@ -30,7 +30,6 @@ function ImageUploader() {
 
   return (
     <Container maxWidth="md">
-        <br />
       <Typography variant="h5" align="center" gutterBottom>
         Image Uploader
       </Typography>

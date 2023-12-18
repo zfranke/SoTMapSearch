@@ -152,12 +152,11 @@ function ImageSlider() {
         <img
           src={currentImage}
           alt={`Image ${currentIndex}`}
-          style={{ height: '860px', width: '860px' }}
+          style={{ maxWidth: '100%' }}
         />
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '16px' }}>
         <Button onClick={() => navigate('prev')}>&#8592; Previous</Button>
-        <Button onClick={() => setCurrentIndex(0)}>Reset</Button>
         <Button onClick={() => navigate('next')}>Next &#8594;</Button>
       </div>
     </Container>
